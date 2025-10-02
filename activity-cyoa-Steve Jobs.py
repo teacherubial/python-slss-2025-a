@@ -17,6 +17,10 @@ time.sleep(1.5)
 
 user_choice = input("What do you want to do? Go through the door, or the gate? (answer door or gate)")
 
+if user_choice == "door":
+    print("You went through the door.")
+elif user_choice == "gate":
+    print("You walk through the gate.")
 
 # Problem
 
