@@ -21,6 +21,13 @@ def normalized_input():
 	return output
 
 
-# Ask the user what the weather is
-weather_reply = normalized_input()
-print(weather_reply)
+
+def some_fun():
+	print("hello!")
+
+def some_fun_return() -> str:
+	print("hello!")
+	return "hello!"
+
+return_val = some_fun_return()
+print(return_val)
