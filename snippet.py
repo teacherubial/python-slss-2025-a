@@ -1,3 +1,5 @@
+# Random Code Snippets
+
 # Get the user's choice
 print("Do you want to go through the door?")
 
