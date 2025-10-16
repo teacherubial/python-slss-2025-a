@@ -2,6 +2,7 @@
 # Author: Ubial
 # 14 October 2025
 
+import random
 import turtle
 
 window = turtle.Screen()  # Set up the window and its attributes
@@ -47,40 +48,46 @@ mikey.width(5)
 # mikey.circle(60)
 # mikey.end_fill()
 
-# MAKE 100 COOKIES
-for counter in range(100):
-    counter = counter * 50
+# Create a function that makes a cookie
+# at (x, y)
+def make_cookie(x: int, y: int):
     # Make sure that turtle is pointing east
     mikey.setheading(0)
     # change the cookie colour
     mikey.color("brown")
     # draw a circle
     mikey.pu()
-    mikey.goto(-5 + counter, -30 + counter)
+    mikey.goto(-5 + x, -30 + y)
     mikey.pd()
     mikey.circle(30)
 
     # put a chocolate chip on the top left side
     mikey.pu()
-    mikey.goto(-10 + counter, 10 + counter)
+    mikey.goto(-10 + x, 10 + y)
     mikey.stamp()
 
     # chocolate chip on the top right
-    mikey.goto(10 + counter, 10 + counter)
+    mikey.goto(10 + x, 10 + y)
     mikey.stamp()
 
     # choco chip on the bottom right
-    mikey.goto(10 + counter, -10 + counter)
+    mikey.goto(10 + x, -10 + y)
     mikey.stamp()
 
     # ch chip on the bottom left
-    mikey.goto(-10 + counter, -10 + counter)
+    mikey.goto(-10 + x, -10 + y)
     mikey.stamp()
 
     # ch chip in the middle
-    mikey.goto(0 + counter, 0 + counter)
+    mikey.goto(0 + x, 0 + y)
     mikey.stamp()
 
-
+mikey.speed(0)
+# Make cookies in random locations
+# Make a 1000 cookies
+for _ in range(1000):
+    x = random.randrange(-700, 701)
+    y = random.randrange(-700, 701)
+    make_cookie(x, y)
 
 window.exitonclick()
