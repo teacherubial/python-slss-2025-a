@@ -9,6 +9,14 @@ import turtle
 wn = turtle.Screen()
 t = turtle.Turtle()
 
+# Dictionary to hold colours
+LEAF_COLOURS = {
+    "spring": "#c28cae",
+    "summer": "#a8d4ad",
+    "winter": "#92b9bd",
+    "fall": "#e57a44"
+}
+
 def draw_tree(level: int, branch_length: float):
     """A recursive function to draw trees
     level - the levels of branches
@@ -17,7 +25,7 @@ def draw_tree(level: int, branch_length: float):
     # Base case is when level is 0
     if level == 0:
         # Create a leaf
-        t.color("darkgreen")
+        t.color(LEAF_COLOURS["spring"])
         t.stamp()
         t.color("brown")
     # For all other levels
@@ -88,12 +96,14 @@ t.penup()
 t.goto(0, -180)
 t.pendown()
 
-# draw_complicated_tree(5, 128)
-print(factorial(3))     # 6
-print(factorial(4))     # 24
-print(factorial(100))   #
+# # draw_complicated_tree(5, 128)
+# print(factorial(3))     # 6
+# print(factorial(4))     # 24
+# print(factorial(100))   #
 
-print(fibonacci(5))
-print(fibonacci(1000))
+# print(fibonacci(5))
+# print(fibonacci(1000))
+
+draw_tree(4, 240)
 
 wn.exitonclick()
