@@ -1,22 +1,31 @@
 # Random Code Snippets
 
-# Get the user's choice
-print("Do you want to go through the door?")
+import turtle
 
-choice = input()
+wn = turtle.Screen()
+mikey = turtle.Turtle()
 
-if choice == "door":
-    print("You've gone through the door.")
-else:
-    print("You're still standing in the same spot.")
+wn.bgcolor("lightgreen")
 
-# We can reuse variables. We can change their values.
+mikey.color("lightblue")
+mikey.pencolor("lightblue")
+mikey.fillcolor("lightblue")
+mikey.width(5)
 
-print("Do you want to eat a burger?")
+mikey.begin_fill()
+mikey.circle(100)
+mikey.end_fill()
+mikey.penup()
+mikey.goto(0, 200)
+mikey.pd()
+mikey.begin_fill()
+mikey.circle(80)
+mikey.end_fill()
+mikey.penup()
+mikey.goto(0, 360)
+mikey.pd()
+mikey.begin_fill()
+mikey.circle(60)
+mikey.end_fill()
 
-choice = input()
-
-if choice == "yes":
-    print("You ate it. It's soo yummy.")
-else:
-    print("You're satisfied with your choice.")
+wn.exitonclick()
