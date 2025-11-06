@@ -9,14 +9,15 @@ import turtle
 wn = turtle.Screen()
 t = turtle.Turtle()
 
-# Draw house
-# Draw the outline
-for _ in range(4):
-    t.forward(400)
-    t.right(90)
-# Draw the roof
-# Draw the door
-# Draw the left window
-# Draw the right window
+def draw_house(x: int, y: int):
+    """Draws a house at the location x and y.
+
+    x, y - bottom left corner of the house"""
+
+    t.goto(-100, -300)   # this is an offset for the house
+
+# drawing a pizza
+t.circle(100, 160)
+t.forward(200)     # slicing up the pizza
 
 wn.exitonclick()
