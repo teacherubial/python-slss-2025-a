@@ -29,6 +29,7 @@ def vote_listed_choices():
     heytea = 0
     coco = 0
     fresh_t = 0
+    spoiled_votes = 0
 
     # Show all the choices
     print("Vote for your favourite from the list. ")
@@ -43,9 +44,37 @@ def vote_listed_choices():
         blenz = blenz + 1
     elif vote == "b":
         bubble_queen += 1
+    elif vote == "c":
+        sun_tea += 1
+    elif vote == "d":
+        heytea += 1
+    elif vote == "e":
+        coco += 1
+    elif vote == "f":
+        fresh_t += 1
+    else:
+       spoiled_votes += 1
+
     # Data analysis
     # Give the raw scores
+    print("Voting Results ---")
+    print(f"Blenz: {blenz} votes")
+    print(f"Bubble Queen: {bubble_queen} votes")
+    print(f"Sun Tea: {sun_tea} votes")
+    print(f"hey tea: {heytea} votes")
+    print(f"CoCo: {coco} votes")
+    print(f"Fresh T: {fresh_t} votes")
+    print(f"Spoiled votes: {spoiled_votes} votes")
     # Give scores as a percentage
+    print("Vote share percentage ---")
+    total = blenz + bubble_queen + sun_tea + heytea + coco + fresh_t + spoiled_votes
+    print(f"Blenz: {blenz / total * 100} %")
+    print(f"Bubble Queen: {bubble_queen / total * 100} %")
+    print(f"Sun Tea: {sun_tea / total * 100} %")
+    print(f"hey tea: {heytea / total * 100} %")
+    print(f"CoCo: {coco / total * 100} %")
+    print(f"Fresh T: {fresh_t / total * 100} %")
+    print(f"Spoiled votes: {spoiled_votes / total * 100} votes")
 
 # Version 2
 # Ask the user to give their
