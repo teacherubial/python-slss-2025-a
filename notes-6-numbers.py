@@ -22,6 +22,14 @@ def vote_listed_choices():
         "F. Fresh T"
     ]
 
+    # buckets to hold all votes
+    blenz = 0
+    bubble_queen = 0
+    sun_tea = 0
+    heytea = 0
+    coco = 0
+    fresh_t = 0
+
     # Show all the choices
     print("Vote for your favourite from the list. ")
     print("Give the letter of your choice.")
@@ -29,7 +37,12 @@ def vote_listed_choices():
         print(choice)
 
     # Ask the user for their choice
+    vote = input("Your vote: ").strip(",.?! ").lower()
     # Keep track of a tally
+    if vote == "a":
+        blenz = blenz + 1
+    elif vote == "b":
+        bubble_queen += 1
     # Data analysis
     # Give the raw scores
     # Give scores as a percentage
