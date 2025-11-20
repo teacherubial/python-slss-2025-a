@@ -19,7 +19,7 @@ def olympic_judging(num_judges: int):
 def mcdolands(tax: float):
     """
     Params:
-        tax - tax as a percentage e.g. 14%"""
+        tax - tax as a percentage e.g. 14% -> 14"""
     burger = input("Would you like a burger for $5? (Yes/No)\n").lower().strip(",.?! ")
     fries = input("Would you like fries for $3? (Yes/No)\n").lower().strip(",.?! ")
 
