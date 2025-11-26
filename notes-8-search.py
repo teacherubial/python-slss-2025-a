@@ -11,7 +11,6 @@ import csv
 
 def main():
     artist = "Kendrick Lamar" # artist to find
-    artist_two = "Justin Bieber"
     track_col = 0
     artist_col = 2
     yt_views_col = 11
@@ -35,27 +34,15 @@ def main():
         # print how many songs are in the list
         print(f"Number of Kendrick Songs: {len(kendrick_songs)}")
 
+        # print our findings in a pretty way
+        print("Track Name\t\tYouTube Views\t\tTikTok Views") # header
+
         for song in kendrick_songs:
-            current_trackname = song[track_col]
+            current_track = song[track_col]
             current_ytviews = song[yt_views_col]
             current_tiktokviews = song[tiktok_views_col]
 
-            # display information in a clear way
-            # Squabble Up       100,000,000     120,000,000
-            if 7 < len(current_trackname) < 14:
-                tabs = "\t\t\t"
-            elif 14 < len(current_trackname) < 18:
-                tabs = "\t\t"
-            elif 18 < len(current_trackname):
-                tabs = "\t"
-            else:
-                tabs = "\t\t\t\t"
-
-            print(f"{current_trackname.strip()}{tabs}{current_ytviews.strip()}\t{current_tiktokviews.strip()}")
-
-        # for song in kendrick_songs:
-        #     print(song)
-
+            print(f"{current_track}\t\t{current_ytviews}\t\t{current_tiktokviews}")
 
 
 if __name__ == "__main__":
