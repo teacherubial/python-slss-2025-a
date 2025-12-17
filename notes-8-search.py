@@ -1,4 +1,4 @@
-# Into to Search
+# Intro to Search
 # Author: Ubial
 # 25 November
 

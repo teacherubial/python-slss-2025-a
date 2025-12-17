@@ -79,14 +79,24 @@ def sort_songs(songs: list[list[str]], col: int, ascending=True) -> list[list[st
     return songs
 
 if __name__ == "__main__":
-    # Get all songs from Taylor Swift
-    taylors_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Taylor Swift")
-    taylors_sorted_songs = sort_songs(taylors_songs, 11, ascending=True)
+    # # Get all songs from Taylor Swift
+    # taylors_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Taylor Swift")
+    # taylors_sorted_songs = sort_songs(taylors_songs, 11, ascending=True)
 
-    # Header on the results
-    print("Taylor Swift's Songs")
-    print("____________________")
-    print("Name\tYT Views")
-    # For every song, print out Track Name, YT Views
-    for song in taylors_sorted_songs:
-        print(song[0], "\t", song[11])
+    # # Header on the results
+    # print("Taylor Swift's Songs")
+    # print("____________________")
+    # print("Name\tYT Views")
+    # # For every song, print out Track Name, YT Views
+    # for song in taylors_sorted_songs:
+    #     print(song[0], "\t", song[11])
+
+    # Songs with "the"
+    the_songs = helper_spotify.track_search("data/spotify2024.csv", "the")
+    # print(len(the_songs))
+    # # for song in the_songs:
+    # #     print(song[0])
+    #
+    with open("./results.csv", "w") as f:
+        for song in the_songs:
+            f.write(",".join(song) + "\n",)
