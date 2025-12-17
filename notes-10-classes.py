@@ -7,12 +7,12 @@ import random
 class Pokemon:
     def __init__(self):
         # Initialize the properties of Pokemon
-        self.name = "Pikachu"
-        self.species = "Pikachu"
-        self.type = "Electric"
+        self.name = ""
+        self.species = ""
+        self.type = "normal"
         self.age = 0
         self.level = 1
-        print(f"{self.name} is born!")
+        print("A pokemon is born!")
         # One out of 4096 should be shiny
         # self.shiny = random.randint(4096)
         if random.randint(0, 4096):
@@ -49,6 +49,14 @@ class Pokemon:
         return found_things
 
 class Squirtle(Pokemon):
+    def __init__(self):
+        # Call the superclass constructor explicitly
+        super().__init__()
+        self.name = "Squirtle"
+        self.species = "Squirtle"
+        self.type = "water"
+        self.has_sunglasses = True
+
     def water_gun(self):
         """Use the water gun attack."""
         print(f"{self.name} used water gun.")
@@ -83,5 +91,5 @@ if __name__ == "__main__":
     pokemon_two.stats()
 
     squirtle_one = Squirtle()
-    squirtle_one.name = "Squirtle"
     squirtle_one.talk()
+    squirtle_one.water_gun()
