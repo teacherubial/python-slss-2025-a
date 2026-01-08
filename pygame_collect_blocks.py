@@ -34,6 +34,10 @@ class Mario(pygame.sprite.Sprite):
         """Update Mario's location based on the mouse pos"""
         self.rect.center = pygame.mouse.get_pos()
 
+class Enemy(pygame.sprite.Sprite):
+    # TODO: Implement an enemy sprite
+    # TODO: Constructor
+    # TODO: Update Method
 
 def game():
     pygame.init()
@@ -62,6 +66,7 @@ def game():
 
     # Create a Sprite Group
     all_sprites_group = pygame.sprite.Group()
+    block_sprites_group = pygame.sprite.Group()
 
     # Create 100 blocks
     # Randomly place them throughout the screen
@@ -72,6 +77,7 @@ def game():
         block.rect.centery = random.randrange(0, HEIGHT)
 
         all_sprites_group.add(block)
+        block_sprites_group.add(block)
 
     # Create a player
     player = Mario()
@@ -89,6 +95,15 @@ def game():
 
         # ------ GAME LOGIC
         all_sprites_group.update()
+
+        # TODO: Check if Mario collides with a block
+        blocks_collided = pygame.sprite.spritecollide(player, block_sprites_group, True)
+        # if the blocks_collided list has something in it
+        # print Mario has collided with a block!
+        if blocks_collided:
+            print("----")
+            print("Mario has collided with a block!")
+            print(blocks_collided)
 
         # ------ DRAWING TO SCREEN
         screen.fill(WHITE)
