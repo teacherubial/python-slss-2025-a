@@ -35,9 +35,18 @@ class Mario(pygame.sprite.Sprite):
         self.rect.center = pygame.mouse.get_pos()
 
 class Enemy(pygame.sprite.Sprite):
-    # TODO: Implement an enemy sprite
-    # TODO: Constructor
-    # TODO: Update Method
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.image.load("assets/goomba-nes.png")
+        self.rect = self.image.get_rect()
+
+        self.vel_x = 0
+        self.vel_y = 0
+
+    def update(self):
+        # movement in the x- and y-axis
+        self.rect.x += self.vel_x
+        self.rect.y += self.vel_y
 
 def game():
     pygame.init()
@@ -63,10 +72,26 @@ def game():
     # Variables
     done = False
     clock = pygame.time.Clock()
+    num_enemies = 5
 
     # Create a Sprite Group
     all_sprites_group = pygame.sprite.Group()
     block_sprites_group = pygame.sprite.Group()
+    enemy_sprites_group = pygame.sprite.Group()
+
+    # Create Enemies
+    for _ in range(num_enemies):
+        # Create an enemy
+        enemy = Enemy()
+        # Randomize movement
+        random_x = random.choice([-5, -3, -1, 1, 3, 5])
+        random_y = random.choice([-5, -3, -1, 1, 3, 5])
+        enemy.vel_x, enemy.vel_y = random_x, random_y
+        # Start them in the middle
+        enemy.rect.center = (WIDTH/2, HEIGHT/2)
+
+        all_sprites_group.add(enemy)
+        enemy_sprites_group.add(enemy)
 
     # Create 100 blocks
     # Randomly place them throughout the screen
@@ -95,6 +120,13 @@ def game():
 
         # ------ GAME LOGIC
         all_sprites_group.update()
+
+        # Keep enemies in screen
+        for enemy in enemy_sprites_group:
+            if enemy.rect.left < 0 or enemy.rect.right > WIDTH:
+                enemy.vel_x = -enemy.vel_x
+            if enemy.rect.top < 0 or enemy.rect.bottom > HEIGHT:
+                enemy.vel_y = -enemy.vel_y
 
         # TODO: Check if Mario collides with a block
         blocks_collided = pygame.sprite.spritecollide(player, block_sprites_group, True)
